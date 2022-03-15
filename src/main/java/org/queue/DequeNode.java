@@ -9,22 +9,22 @@ package org.queue;
  */
 public class DequeNode<T> {
     private T item ;
-    private T next ;
-    private T previous ;
+    private DequeNode<T> next ;
+    private DequeNode<T> previous ;
 
     public T getItem() {
         return item;
     }
 
-    public T getNext() {
+    public DequeNode<T> getNext() {
         return next;
     }
 
-    public T getPrevious() {
+    public DequeNode<T> getPrevious() {
         return previous;
     }
 
-    public DequeNode(T item, T next, T previous) {
+    public DequeNode(T item, DequeNode<T> next, DequeNode<T> previous) {
         this.item = item ;
         this.next = next ;
         this.previous = previous ;
@@ -40,5 +40,13 @@ public class DequeNode<T> {
 
     public boolean isNotATerminalNode() {
         return (!isFirstNode() && !isLastNode()) ;
+    }
+
+    public void setNext(DequeNode<T> next) {
+        this.next = next;
+    }
+
+    public void setPrevious(DequeNode<T> previous) {
+        this.previous = previous;
     }
 }
