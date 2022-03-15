@@ -74,4 +74,21 @@ public class DequeNodeTest<T> {
     }
 
 
+    @Test
+    public void checkSetNext(){
+        node= new DequeNode<>(item,next,previous);
+        DequeNode<T> check = null;
+        DequeNode<T> node1 = new DequeNode<>(item,check,previous);
+        node.setNext(check);
+        assertEquals(node.getNext(),node1.getNext());
+    }
+
+    @Test
+    public void checkSetPrevious(){
+        node= new DequeNode<>(item,next,previous);
+        DequeNode<T> check = null;
+        DequeNode<T> node1 = new DequeNode<>(item,next,check);
+        node.setPrevious(check);
+        assertEquals(node.getPrevious(),node1.getPrevious());
+    }
 }
