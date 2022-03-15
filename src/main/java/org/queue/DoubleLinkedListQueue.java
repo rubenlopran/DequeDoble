@@ -2,10 +2,15 @@ package org.queue;
 
 public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
 
-    DequeNode<T> first = null;
-    DequeNode<T> last = null;
-    DequeNode<T> aux = null;
-    int size=0;
+    private DequeNode<T> first;
+    private DequeNode<T> last;
+    private int size;
+
+    public DoubleLinkedListQueue(){
+        first = null;
+        last = null;
+        size=0;
+    }
 
     @Override
     public void append(DequeNode<T> node) {
