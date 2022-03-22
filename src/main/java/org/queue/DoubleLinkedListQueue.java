@@ -140,6 +140,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         aux = aux.getPrevious();
         aux.setNext(next);
         next.setPrevious(aux);
+        size--;
     }
 
     @Override
@@ -149,7 +150,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         T aux;
         actual= first;
         index = actual.getNext();
-        while(actual != null){
+        while(actual.getNext() != null){
             while(index !=null){
                 if(comparator.compare(actual.getItem(),index.getItem())>0){
                     aux = actual.getItem();
