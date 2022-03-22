@@ -229,7 +229,7 @@ public class DoubleLinkedListQueueTest<T> {
         DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
         assertThrows(RuntimeException.class,()->lista.sort(comparator));
     }
-
+    //ordenado de mayor a menor
     @Test
     public void checkSort(){
         DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
@@ -243,7 +243,18 @@ public class DoubleLinkedListQueueTest<T> {
         assertTrue(lista.first.getItem()==4 && lista.last.getItem()==1);
 
     }
+    //ordenado de mayor a menor
+    @Test
+    public void checkSort2Nodes(){
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
+        DequeNode<Integer> n=new DequeNode<>(1,null,null);
+        lista.append(n);
+        DequeNode<Integer> node1=new DequeNode<>(4,null,n);
+        lista.append(node1);
+        lista.sort(comparator);
+        assertTrue(lista.first.getItem()==4 && lista.last.getItem()==1);
 
+    }
 
 
 }

@@ -143,6 +143,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         size--;
     }
 
+    //ordenado de mayor a menor
     @Override
     public void sort(Comparator<T> comparator) {
         if(size==0) throw new RuntimeException("Lista vacía");
