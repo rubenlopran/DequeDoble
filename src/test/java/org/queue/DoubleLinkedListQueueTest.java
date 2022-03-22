@@ -42,8 +42,25 @@ public class DoubleLinkedListQueueTest<T> {
     }
 
     @Test
+    public void checkPeekFirst2Nodes(){
+        dlink.append(node);
+        DequeNode<T> node1=new DequeNode<>(item,first,previous);
+        dlink.append(node1);
+        assertEquals(node,dlink.peekFirst());
+    }
+
+
+    @Test
     public void checkPeekLast(){
         assertEquals(last,dlink.peekLast());
+    }
+
+    @Test
+    public void checkPeekLast2Nodes(){
+        dlink.append(node);
+        DequeNode<T> node1=new DequeNode<>(item,first,previous);
+        dlink.append(node1);
+        assertEquals(node1,dlink.peekLast());
     }
 
     @Test
