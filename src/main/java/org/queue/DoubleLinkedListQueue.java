@@ -149,8 +149,8 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         T aux;
         actual= first;
         index = actual.getNext();
-        while(actual.getNext() != null){
-            while(index.getNext()!=null){
+        while(actual != null){
+            while(index !=null){
                 if(comparator.compare(actual.getItem(),index.getItem())>0){
                     aux = actual.getItem();
                     actual.setItem(index.getItem());
