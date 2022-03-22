@@ -123,7 +123,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         }
         DequeNode<T> aux = first;
         boolean encontrado = false;
-        while(!encontrado && aux.getNext()!=null){
+        while(!encontrado && aux!=null){
             if(aux.getItem().equals(item)) encontrado = true;
             else aux = aux.getNext();
         }
