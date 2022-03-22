@@ -2,11 +2,15 @@ package org.queue;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Comparator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DoubleLinkedListQueueTest<T> {
 
     private T item;
+    private T item1;
+    private T item2;
     private DequeNode<T> next ;
     private DequeNode<T> previous;
     private DequeNode<T> node = new DequeNode<>(item,next,previous);
@@ -14,6 +18,18 @@ public class DoubleLinkedListQueueTest<T> {
     private DequeNode<T> last;
     int size=0;
     private DoubleLinkedListQueue<T>dlink= new DoubleLinkedListQueue<>();
+
+
+    Comparator<Integer> comparator=new Comparator<Integer>() {
+        @Override
+        public int compare(Integer item1, Integer item2) {
+            if(item1<item2){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+    };
 
     @Test
     public void checkSizeEmpty(){
@@ -133,5 +149,118 @@ public class DoubleLinkedListQueueTest<T> {
         DequeNode<T> aux= node1.getPrevious();
         assertEquals(dlink.first,aux);
     }
+
+    //Segunda parte testing Operaciones complejas
+
+    @Test
+    public void checkgetAtSize0(){
+        assertThrows(RuntimeException.class,()->dlink.getAt(4));
+    }
+
+    @Test
+    public void checkgetAtBadIndex(){
+        dlink.append(node);
+        assertThrows(RuntimeException.class,()->dlink.getAt(2));
+    }
+
+    @Test
+    public void checkgetAt(){
+        dlink.append(node);
+        DequeNode<T> node1=new DequeNode<>(item,null,node);
+        dlink.append(node1);
+        assertEquals(node1,dlink.getAt(2));
+    }
+
+    @Test
+    public void checkgetAtNegativeIndex(){
+        dlink.append(node);
+        assertThrows(RuntimeException.class,()->dlink.getAt(-1));
+    }
+
+    @Test
+    public void checkgetAt0Index(){
+        dlink.append(node);
+        assertThrows(RuntimeException.class,()->dlink.getAt(0));
+    }
+
+    @Test
+    public void checkFind(){
+        /*dlink.append(node);
+        DequeNode<T> node1=new DequeNode<>(item1,null,node);
+        dlink.append(node1);
+        assertEquals(node1,dlink.find(item1));
+        */
+
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<Integer>();
+        DequeNode<Integer> n=new DequeNode<>(1,null,null);
+        lista.append(n);
+        DequeNode<Integer> node1=new DequeNode<>(4,null,n);
+        lista.append(node1);
+        assertEquals(node1,lista.find(4));
+
+    }
+
+    @Test
+    public void checkFindNoItemFound(){
+        dlink.append(node);
+        DequeNode<T> node1=new DequeNode<>(item1,first,previous);
+        dlink.append(node1);
+        assertThrows(RuntimeException.class,()->dlink.find(item2));
+    }
+
+    @Test
+    public void checkFindEmpty(){
+        assertThrows(RuntimeException.class,()->dlink.find(item2));
+    }
+
+    @Test
+    public void checkDeleteEmpty(){
+        assertThrows(RuntimeException.class,()->dlink.delete(node));
+    }
+
+    @Test
+    public void checkDelete(){
+        /*dlink.append(node);
+        DequeNode<T> node1=new DequeNode<>(item1,first,previous);
+        dlink.append(node1);
+        DequeNode<T> node2=new DequeNode<>(item2,null,node1);
+        dlink.append(node2);
+        dlink.delete(node1);
+        assertEquals(node.getNext(),node2);
+        */
+
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<Integer>();
+        DequeNode<Integer> n=new DequeNode<>(1,null,null);
+        lista.append(n);
+        DequeNode<Integer> node1=new DequeNode<>(4,null,n);
+        lista.append(node1);
+        DequeNode<Integer> node2=new DequeNode<>(5,null,node1);
+        lista.append(node2);
+        lista.delete(node1);
+        assertEquals(n.getNext(),node2);
+    }
+
+    @Test
+    public void checkSortEmpty(){
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<Integer>();
+        assertThrows(RuntimeException.class,()->lista.sort(comparator));
+    }
+
+    @Test
+    public void checkSort(){
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<Integer>();
+        DequeNode<Integer> n=new DequeNode<>(1,null,null);
+        lista.append(n);
+        DequeNode<Integer> node1=new DequeNode<>(4,null,n);
+        lista.append(node1);
+        DequeNode<Integer> node2 = new DequeNode<>(3,null,node1);
+        lista.append(node2);
+        DoubleLinkedListQueue<Integer> lista1 = lista;
+        lista.sort(comparator);
+        assertEquals(lista,lista1);
+
+    }
+
+
 
 }
