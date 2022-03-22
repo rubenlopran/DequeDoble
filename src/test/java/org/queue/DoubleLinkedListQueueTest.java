@@ -255,9 +255,8 @@ public class DoubleLinkedListQueueTest<T> {
         lista.append(node1);
         DequeNode<Integer> node2 = new DequeNode<>(3,null,node1);
         lista.append(node2);
-        DoubleLinkedListQueue<Integer> lista1 = lista;
         lista.sort(comparator);
-        assertEquals(lista,lista1);
+        assertTrue(lista.first.getItem()==4 && lista.last.getItem()==1);
 
     }
 
