@@ -49,4 +49,8 @@ public class DequeNode<T> {
     public void setPrevious(DequeNode<T> previous) {
         this.previous = previous;
     }
+
+    public void setItem(T item) {
+        this.item = item;
+    }
 }
