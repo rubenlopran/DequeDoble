@@ -1,0 +1,24 @@
+DoubleLinkedListQueueTest:
+-Se comprueba que la lista se crea vacía y con tamaño 0
+-Se comprueba que se devuelve el tamaño correcto de una lista al introducir dos valores
+-Se comprueba que se devuelve el tamaño correcto de una lista al introducir un valor
+-Se comprueba que se devuelve correctamente el primer valor de la lista
+-Se comprueba que se devuelve correctamente el último valor de la lista
+-Se comprueba que salte error al intentar borrar un valor de una lista vacia
+-Se comprueba que se quede vacía una lista al eliminar el último elemento restante de la misma
+-Se comprueba que se borre correctamente el primer valor de la lista
+-Se comprueba que se borre correctamente el ultimo valor de la lista
+-Se comprueba que se añade correctamente un valor en una lista vacia
+-Se comprueba que se añade correctamente un valor al principio de una lista no vacía
+-Se comprueba que se añade correctamente un valor al final de una lista no vacía
+
+DequeNodeTest:
+-Se comprueba que se devuelve correctamente el nodo anterior
+-Se comprueba que se devuelve correctamente el nodo siguiente
+-Se comprueba que se devuelve correctamente el item del nodo
+-Se comprueba que se detecta correctamente si un nodo es el primerof
+-Se comprueba que se detecta correctamente si un nodo es el ultimo
+-Se comprueba que se detecta correctamente si un nodo es terminal
+-Se comprueba que se inserta correctamente el siguiente nodo
+-Se comprueba que se inserta correctamente el nodo anterior
+
