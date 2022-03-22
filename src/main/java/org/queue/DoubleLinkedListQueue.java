@@ -109,7 +109,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         }
 
         DequeNode<T> aux= first;
-        while(position!=0){
+        while(position!=1){
             aux= aux.getNext();
             position--;
         }
@@ -124,7 +124,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
         DequeNode<T> aux = first;
         boolean encontrado = false;
         while(!encontrado && aux.getNext()!=null){
-            if(aux.getItem() == item) encontrado = true;
+            if(aux.getItem().equals(item)) encontrado = true;
             else aux = aux.getNext();
         }
         if(!encontrado) throw new RuntimeException("Item no encontrado");
