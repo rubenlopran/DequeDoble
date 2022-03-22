@@ -97,7 +97,7 @@ public class DoubleLinkedListQueueTest<T> {
         DequeNode<T> node1=new DequeNode<>(item,first,previous);
         dlink.append(node1);
         dlink.deleteLast();
-        assertEquals(null,node.getNext());
+        assertNull(node.getNext());
     }
 
     @Test
@@ -118,7 +118,7 @@ public class DoubleLinkedListQueueTest<T> {
         DequeNode<T> node1=new DequeNode<>(item,first,previous);
         dlink.append(node1);
         dlink.deleteFirst();
-        assertEquals(null,node.getPrevious());
+        assertNull(node.getPrevious());
     }
 
     @Test
@@ -131,7 +131,7 @@ public class DoubleLinkedListQueueTest<T> {
     public void checkAppendLeft(){
         dlink.append(node);
         DequeNode<T> node1=new DequeNode<>(item,node.getNext(),node);
-        dlink.appendLeft(node1);;
+        dlink.appendLeft(node1);
         assertEquals(dlink.first,node1);
     }
 
@@ -185,19 +185,12 @@ public class DoubleLinkedListQueueTest<T> {
 
     @Test
     public void checkFind(){
-        /*dlink.append(node);
-        DequeNode<T> node1=new DequeNode<>(item1,null,node);
-        dlink.append(node1);
-        assertEquals(node1,dlink.find(item1));
-        */
-
-        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<Integer>();
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
         DequeNode<Integer> n=new DequeNode<>(1,null,null);
         lista.append(n);
         DequeNode<Integer> node1=new DequeNode<>(4,null,n);
         lista.append(node1);
         assertEquals(node1,lista.find(4));
-
     }
 
     @Test
@@ -220,16 +213,7 @@ public class DoubleLinkedListQueueTest<T> {
 
     @Test
     public void checkDelete(){
-        /*dlink.append(node);
-        DequeNode<T> node1=new DequeNode<>(item1,first,previous);
-        dlink.append(node1);
-        DequeNode<T> node2=new DequeNode<>(item2,null,node1);
-        dlink.append(node2);
-        dlink.delete(node1);
-        assertEquals(node.getNext(),node2);
-        */
-
-        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<Integer>();
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
         DequeNode<Integer> n=new DequeNode<>(1,null,null);
         lista.append(n);
         DequeNode<Integer> node1=new DequeNode<>(4,null,n);
@@ -242,13 +226,13 @@ public class DoubleLinkedListQueueTest<T> {
 
     @Test
     public void checkSortEmpty(){
-        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<Integer>();
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
         assertThrows(RuntimeException.class,()->lista.sort(comparator));
     }
 
     @Test
     public void checkSort(){
-        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<Integer>();
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
         DequeNode<Integer> n=new DequeNode<>(1,null,null);
         lista.append(n);
         DequeNode<Integer> node1=new DequeNode<>(4,null,n);
