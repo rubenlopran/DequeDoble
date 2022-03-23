@@ -39,7 +39,7 @@ public class DoubleLinkedListQueueTest<T> {
     @Test
     public void checkSize(){
         dlink.append(node);
-        DequeNode<T> node1=new DequeNode<>(item,first,previous);
+        DequeNode<T> node1=new DequeNode<>(item1,null,node);
         dlink.append(node1);
         assertEquals(2,dlink.size());
     }
@@ -60,7 +60,7 @@ public class DoubleLinkedListQueueTest<T> {
     @Test
     public void checkPeekFirst2Nodes(){
         dlink.append(node);
-        DequeNode<T> node1=new DequeNode<>(item,first,previous);
+        DequeNode<T> node1=new DequeNode<>(item1,null,node);
         dlink.append(node1);
         assertEquals(node,dlink.peekFirst());
     }
@@ -74,7 +74,7 @@ public class DoubleLinkedListQueueTest<T> {
     @Test
     public void checkPeekLast2Nodes(){
         dlink.append(node);
-        DequeNode<T> node1=new DequeNode<>(item,first,previous);
+        DequeNode<T> node1=new DequeNode<>(item1,null,node);
         dlink.append(node1);
         assertEquals(node1,dlink.peekLast());
     }
@@ -94,7 +94,7 @@ public class DoubleLinkedListQueueTest<T> {
     @Test
     public void checkDeleteLast(){
         dlink.append(node);
-        DequeNode<T> node1=new DequeNode<>(item,first,previous);
+        DequeNode<T> node1=new DequeNode<>(item1,null,node);
         dlink.append(node1);
         dlink.deleteLast();
         assertNull(node.getNext());
@@ -115,7 +115,7 @@ public class DoubleLinkedListQueueTest<T> {
     @Test
     public void checkDeleteFirst(){
         dlink.append(node);
-        DequeNode<T> node1=new DequeNode<>(item,first,previous);
+        DequeNode<T> node1=new DequeNode<>(item1,null,node);
         dlink.append(node1);
         dlink.deleteFirst();
         assertNull(node.getPrevious());
@@ -196,7 +196,7 @@ public class DoubleLinkedListQueueTest<T> {
     @Test
     public void checkFindNoItemFound(){
         dlink.append(node);
-        DequeNode<T> node1=new DequeNode<>(item1,first,previous);
+        DequeNode<T> node1=new DequeNode<>(item1,null,node);
         dlink.append(node1);
         assertThrows(RuntimeException.class,()->dlink.find(item2));
     }
@@ -222,6 +222,17 @@ public class DoubleLinkedListQueueTest<T> {
         lista.append(node2);
         lista.delete(node1);
         assertEquals(n.getNext(),node2);
+    }
+
+    @Test
+    public void checkDeleteNodeOutOfList(){
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
+        DequeNode<Integer> n=new DequeNode<>(1,null,null);
+        lista.append(n);
+        DequeNode<Integer> node1=new DequeNode<>(4,null,n);
+        DequeNode<Integer> node2=new DequeNode<>(5,null,node1);
+        lista.append(node2);
+        assertThrows(RuntimeException.class,()->lista.delete(node1));
     }
 
     @Test
@@ -256,5 +267,28 @@ public class DoubleLinkedListQueueTest<T> {
 
     }
 
+    //ordenado de mayor a menor
+    @Test
+    public void checkSort3Nodes(){
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
+        DequeNode<Integer> n=new DequeNode<>(1,null,null);
+        lista.append(n);
+        DequeNode<Integer> node1=new DequeNode<>(4,null,n);
+        lista.append(node1);
+        DequeNode<Integer> node2=new DequeNode<>(5,null,node1);
+        lista.append(node2);
+        lista.sort(comparator);
+        assertTrue(lista.first.getItem()==5 && lista.last.getItem()==1);
+
+    }
+    //ordenado de mayor a menor
+    @Test
+    public void checkSort1Node(){
+        DoubleLinkedListQueue<Integer> lista = new DoubleLinkedListQueue<>();
+        DequeNode<Integer> n=new DequeNode<>(1,null,null);
+        lista.append(n);
+        lista.sort(comparator);
+        assertTrue(lista.first.getItem()==1 && lista.last.getItem()==1);
+    }
 
 }
