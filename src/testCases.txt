@@ -11,6 +11,19 @@ DoubleLinkedListQueueTest:
 -Se comprueba que se añade correctamente un valor en una lista vacia
 -Se comprueba que se añade correctamente un valor al principio de una lista no vacía
 -Se comprueba que se añade correctamente un valor al final de una lista no vacía
+-Se comprueba que no se coge un elemento si tiene tamaño 0 la lista.
+-Se comprueba que no cogemos un elemento de una posición inexistente.
+-Se comprueba que cogemos un elemento de una posició determinada.
+-Se comprueba que no cogemos un elemento en una posición negativa o 0.
+-Se comprueba que podemos encontrar un elemento determinado en la lista.
+-Se comprueba que el elemnto que buscamos no está en la lista.
+-Se comprueba si buscamos un elemento en una lista vacía.
+-Se comprueba que eliminamos un elemento de la lista.
+-Se comprueba que eliminemos un elemento de una lista vacía.
+-Se comprueba que eliminamos un elemento que no está en la lista.
+-Se comprueba que podemos ordenar una lista(mayor a menor).
+-Se comprueba que no se puede ordenar una lista vacía.
+
 
 DequeNodeTest:
 -Se comprueba que se devuelve correctamente el nodo anterior
