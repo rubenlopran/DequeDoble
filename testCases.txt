@@ -34,4 +34,5 @@ DequeNodeTest:
 -Se comprueba que se detecta correctamente si un nodo es terminal
 -Se comprueba que se inserta correctamente el siguiente nodo
 -Se comprueba que se inserta correctamente el nodo anterior
+-Se comprueba que se edita el item del nodo.
 

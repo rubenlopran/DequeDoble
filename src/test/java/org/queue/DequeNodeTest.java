@@ -91,4 +91,12 @@ public class DequeNodeTest<T> {
         node.setPrevious(check);
         assertEquals(node.getPrevious(),node1.getPrevious());
     }
+
+    @Test
+    public void checkSetItem(){
+        node=new DequeNode<>(null,null,null);
+        node.setItem(item);
+        assertEquals(item,node.getItem());
+    }
+
 }
