@@ -147,7 +147,8 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue<T>{
     @Override
     public void sort(Comparator<T> comparator) {
         if(size==0) throw new RuntimeException("Lista vacía");
-        DequeNode<T> actual, index;
+        DequeNode<T> actual;
+        DequeNode<T> index;
         T aux;
         actual= first;
         index = actual.getNext();
